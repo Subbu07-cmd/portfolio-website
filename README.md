@@ -80,7 +80,7 @@ Here are some of the key projects included in this portfolio:
 
 - **Email:** <asubhani07@gmail.com>  
 - **LinkedIn:** <https://www.linkedin.com/in/subhani-abdul/>  
-- **GitHub:** <https://github.com/asubhani07>
+- **GitHub:** <https://github.com/Subbu07-cmd>
 
 ---
 
