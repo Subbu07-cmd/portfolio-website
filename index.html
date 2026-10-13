@@ -19,6 +19,7 @@
       <div class="nav-links" id="navLinks">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
@@ -40,7 +41,7 @@
       </div>
 
       <div class="cta">
-        <a href="#experience" class="btn primary">View Experience</a>
+        <a href="#projects" class="btn primary">View Projects</a>
         <a href="#contact" class="btn">Get in Touch</a>
         <a href="https://www.linkedin.com/in/subhani-abdul-1021a7127" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
       </div>
@@ -117,11 +118,95 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="alt">
+  <!-- PROJECTS -->
+  <section id="projects" class="alt">
     <div class="container">
       <div class="reveal">
-        <div class="eyebrow">03. skills</div>
+        <div class="eyebrow">03. projects</div>
+        <h2>Featured Projects</h2>
+      </div>
+      <div class="projects">
+        <article class="project reveal">
+          <div class="project-ic">🤖</div>
+          <h3>AI-Enabled DevOps Automation Platform</h3>
+          <p>Built an agentic AI automation platform that brings Claude Code, LangGraph and AWS Bedrock into DevOps workflows for autonomous incident triage, deployment validation and operational task execution. Implemented MCP (Model Context Protocol) server integrations that connect AI agents to internal APIs and infrastructure systems.</p>
+          <ul class="outcomes">
+            <li>Automated 40%+ of repetitive operational tasks using agentic AI workflows</li>
+            <li>Reduced mean time to detection (MTTD) through AI-powered log analysis</li>
+            <li>Enabled self-service infrastructure operations for engineering teams</li>
+          </ul>
+          <div class="tags"><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">AWS Bedrock</span><span class="tag">MCP</span><span class="tag">Claude Code</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">AWS Lambda</span></div>
+          <a class="repo-link" href="https://github.com/Subbu07-cmd/ai-devops-automation-platform" target="_blank" rel="noopener">View code on GitHub ↗</a>
+        </article>
+        <article class="project reveal">
+          <div class="project-ic">🔁</div>
+          <h3>Enterprise CI/CD Pipeline Modernization</h3>
+          <p>Designed and implemented enterprise-grade CI/CD pipelines using GitHub Actions and Jenkins for multi-environment AWS deployments. Built reusable Terraform IaC modules for consistent, auditable provisioning across development, staging and production. Integrated SAST, SCA and container security scanning as automated pipeline gates, improving security posture and delivery speed together.</p>
+          <ul class="outcomes">
+            <li>Reduced deployment cycle time by 60% through full pipeline automation</li>
+            <li>Eliminated manual infrastructure provisioning across 3 environments</li>
+            <li>Zero production incidents caused by IaC drift after rollout</li>
+          </ul>
+          <div class="tags"><span class="tag">GitHub Actions</span><span class="tag">Jenkins</span><span class="tag">Terraform</span><span class="tag">AWS (EC2, EKS, RDS, S3)</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Checkov</span><span class="tag">Python</span></div>
+          <a class="repo-link" href="https://github.com/Subbu07-cmd/enterprise-cicd-pipeline" target="_blank" rel="noopener">View code on GitHub ↗</a>
+        </article>
+        <article class="project reveal">
+          <div class="project-ic">⎈</div>
+          <h3>Kubernetes Platform Engineering &amp; Migration</h3>
+          <p>Architected and operated production Kubernetes (EKS) clusters for enterprise microservices workloads. Led the migration of containerized services from legacy deployment models to Kubernetes with standardized Helm charts, RBAC security hardening, autoscaling policies and Argo CD GitOps delivery.</p>
+          <ul class="outcomes">
+            <li>Achieved a 99.9% uptime SLA across migrated production workloads</li>
+            <li>Cut container deployment time from hours to minutes with Helm automation</li>
+            <li>Reduced infrastructure costs by 30% through right-sizing and autoscaling</li>
+          </ul>
+          <div class="tags"><span class="tag">Kubernetes (EKS)</span><span class="tag">Helm</span><span class="tag">Argo CD</span><span class="tag">Docker</span><span class="tag">Terraform</span><span class="tag">AWS</span><span class="tag">Prometheus</span><span class="tag">Grafana</span></div>
+          <a class="repo-link" href="https://github.com/Subbu07-cmd/kubernetes-platform-engineering" target="_blank" rel="noopener">View code on GitHub ↗</a>
+        </article>
+        <article class="project reveal">
+          <div class="project-ic">☁️</div>
+          <h3>Multi-Account AWS Cloud Infrastructure Platform</h3>
+          <p>Designed and built a secure multi-account AWS landing zone covering VPC architecture, IAM boundary design, Transit Gateway networking and cross-account CI/CD pipelines. Set cloud governance standards and created reusable Terraform modules that engineering teams adopted.</p>
+          <ul class="outcomes">
+            <li>Standardized cloud infrastructure across 3 AWS accounts and 4 environments</li>
+            <li>Cut new environment provisioning from days to under 2 hours</li>
+            <li>Improved security posture with IAM least privilege and automated compliance checks</li>
+          </ul>
+          <div class="tags"><span class="tag">AWS (VPC, IAM, Transit Gateway, EC2, EKS, S3, RDS)</span><span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">GitHub Actions</span><span class="tag">CloudWatch</span></div>
+          <a class="repo-link" href="https://github.com/Subbu07-cmd/aws-multi-account-landing-zone" target="_blank" rel="noopener">View code on GitHub ↗</a>
+        </article>
+        <article class="project reveal">
+          <div class="project-ic">📈</div>
+          <h3>Production Observability &amp; SRE Framework</h3>
+          <p>Built an observability platform on Prometheus, Grafana and CloudWatch covering metrics, logging, alerting and SLI/SLO tracking across Linux and AWS production environments. Set up on-call incident response, blameless postmortems and automated runbooks to reduce MTTR.</p>
+          <ul class="outcomes">
+            <li>Reduced mean time to resolution (MTTR) by 45% through proactive alerting</li>
+            <li>Achieved full production visibility across 50+ servers and cloud services</li>
+            <li>Eliminated 90% of manual monitoring tasks through automation</li>
+          </ul>
+          <div class="tags"><span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">CloudWatch</span><span class="tag">Linux (RHEL/CentOS)</span><span class="tag">AWS</span><span class="tag">Python</span><span class="tag">Bash</span><span class="tag">Ansible</span></div>
+          <a class="repo-link" href="https://github.com/Subbu07-cmd/observability-sre-framework" target="_blank" rel="noopener">View code on GitHub ↗</a>
+        </article>
+        <article class="project reveal">
+          <div class="project-ic">🧠</div>
+          <h3>RAG-Powered AI Knowledge Platform</h3>
+          <p>Designed and built an end-to-end retrieval-augmented generation (RAG) system with an embeddings pipeline, FAISS vector search, semantic search and LangGraph agentic workflows. Integrated AWS Bedrock (Anthropic Claude) for production LLM serving, with hallucination reduction and output evaluation frameworks.</p>
+          <ul class="outcomes">
+            <li>Built a production-grade RAG pipeline over a corpus of 10K+ documents</li>
+            <li>Implemented an evaluation framework tracking accuracy, latency and cost</li>
+            <li>Open-sourced reusable LangGraph agent templates on GitHub</li>
+          </ul>
+          <div class="tags"><span class="tag">LangChain</span><span class="tag">LangGraph</span><span class="tag">AWS Bedrock</span><span class="tag">FAISS</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">AWS S3</span><span class="tag">Prometheus</span></div>
+          <a class="repo-link" href="https://github.com/Subbu07-cmd/rag-knowledge-platform" target="_blank" rel="noopener">View code on GitHub ↗</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">04. skills</div>
         <h2>Tech Stack</h2>
       </div>
       <div class="skills-grid">
@@ -154,10 +239,10 @@
   </section>
 
   <!-- CERTIFICATIONS -->
-  <section id="certifications">
+  <section id="certifications" class="alt">
     <div class="container">
       <div class="reveal">
-        <div class="eyebrow">04. certifications</div>
+        <div class="eyebrow">05. certifications</div>
         <h2>Certifications</h2>
       </div>
       <div class="certs">
@@ -183,10 +268,10 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="alt">
+  <section id="contact">
     <div class="container">
       <div class="contact-box reveal">
-        <div class="eyebrow">05. contact</div>
+        <div class="eyebrow">06. contact</div>
         <h2 style="margin-bottom:14px">Let's Work Together</h2>
         <p>Open to conversations about DevOps, SRE, platform engineering and cloud security roles. My inbox is always open.</p>
         <div class="contact-links">
