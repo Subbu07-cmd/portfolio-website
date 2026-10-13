@@ -1,105 +1,436 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subhani Abdul - Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Subhani Abdul | Sr. DevOps Engineer</title>
+  <meta name="description" content="Subhani Abdul: Sr. DevOps Engineer, SRE and DevSecOps. Azure, AWS, GCP, Kubernetes, Terraform, GitOps, CI/CD and Cloud Security." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-alt: #111831;
+      --card: #151d3a;
+      --border: #24305a;
+      --text: #e6e9f5;
+      --muted: #9aa3c4;
+      --accent: #38bdf8;
+      --accent-2: #a78bfa;
+      --ok: #34d399;
+      --radius: 14px;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+    :root[data-theme="light"] {
+      --bg: #f7f8fc;
+      --bg-alt: #eef1f8;
+      --card: #ffffff;
+      --border: #dde3f0;
+      --text: #121833;
+      --muted: #56607f;
+      --accent: #0284c7;
+      --accent-2: #7c3aed;
+      --ok: #059669;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background .3s, color .3s;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-family: var(--mono); font-weight: 500; color: var(--accent); }
+    .logo span { color: var(--muted); }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: .92rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .theme-btn {
+      background: var(--card); border: 1px solid var(--border); color: var(--text);
+      width: 36px; height: 36px; border-radius: 10px; cursor: pointer; font-size: 1rem;
+    }
+    .menu-btn { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+    /* Hero */
+    .hero { padding: 100px 0 80px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; inset: -40% -20% auto auto; width: 600px; height: 600px;
+      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 25%, transparent), transparent 65%);
+      pointer-events: none;
+    }
+    .status {
+      display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; color: var(--muted);
+      border: 1px solid var(--border); padding: 6px 14px; border-radius: 999px; background: var(--card);
+    }
+    .status i { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 10px var(--ok); }
+    .hero h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; letter-spacing: -.02em; margin: 22px 0 10px; line-height: 1.1; }
+    .grad { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero .role { font-size: clamp(1.1rem, 2.5vw, 1.4rem); color: var(--muted); font-weight: 500; }
+    .terminal {
+      margin-top: 28px; max-width: 640px; background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); font-family: var(--mono); font-size: .88rem; overflow: hidden;
+    }
+    .terminal-bar { display: flex; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+    .terminal-bar b { width: 11px; height: 11px; border-radius: 50%; background: #f87171; }
+    .terminal-bar b:nth-child(2) { background: #fbbf24; }
+    .terminal-bar b:nth-child(3) { background: #34d399; }
+    .terminal-body { padding: 16px 18px; color: var(--muted); min-height: 96px; }
+    .terminal-body .p { color: var(--ok); }
+    .terminal-body .o { color: var(--text); }
+    .cursor { display: inline-block; width: 8px; height: 1em; background: var(--accent); vertical-align: middle; animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+    .btn {
+      padding: 12px 22px; border-radius: 10px; font-weight: 600; font-size: .95rem;
+      border: 1px solid var(--border); transition: transform .2s, border-color .2s;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .btn.primary { background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #fff; border: none; }
+
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 60px; }
+    .stat { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+    .stat strong { display: block; font-size: 1.9rem; font-weight: 800; color: var(--accent); }
+    .stat span { color: var(--muted); font-size: .88rem; }
+
+    /* Sections */
+    section { padding: 80px 0; }
+    section.alt { background: var(--bg-alt); }
+    .eyebrow { font-family: var(--mono); color: var(--accent); font-size: .85rem; }
+    h2 { font-size: clamp(1.7rem, 4vw, 2.3rem); font-weight: 800; letter-spacing: -.01em; margin: 6px 0 36px; }
+    .about p { color: var(--muted); font-size: 1.05rem; max-width: 760px; margin-bottom: 16px; }
+    .about p strong { color: var(--text); }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: var(--border); }
+    .job { position: relative; margin-bottom: 22px; }
+    .job::before {
+      content: ""; position: absolute; left: -28px; top: 22px; width: 16px; height: 16px; border-radius: 50%;
+      background: var(--bg-alt); border: 3px solid var(--accent);
+    }
+    .job.current::before { background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+    .job-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px;
+      transition: border-color .2s, transform .2s;
+    }
+    .job-card:hover { border-color: var(--accent); transform: translateX(4px); }
+    .job-head { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; }
+    .job h3 { font-size: 1.15rem; font-weight: 700; }
+    .job .company { color: var(--accent); font-weight: 600; }
+    .job .meta { color: var(--muted); font-size: .88rem; font-family: var(--mono); text-align: right; }
+    .badge-now { display: inline-block; font-size: .72rem; font-weight: 600; color: var(--ok); border: 1px solid var(--ok); border-radius: 999px; padding: 1px 8px; margin-left: 8px; vertical-align: middle; }
+
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .skill-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+    .skill-card h3 { font-size: 1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+    .skill-card h3 .ic { font-size: 1.2rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      font-size: .82rem; padding: 5px 11px; border-radius: 8px; background: var(--bg-alt);
+      border: 1px solid var(--border); color: var(--text); font-family: var(--mono);
+    }
+
+    /* Certs */
+    .certs { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+    .cert { display: flex; gap: 16px; align-items: center; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; }
+    .cert .logo-box {
+      flex: 0 0 48px; height: 48px; border-radius: 12px; display: grid; place-items: center;
+      font-weight: 800; font-size: .8rem; color: #fff;
+    }
+    .aws { background: linear-gradient(135deg, #ff9900, #e47911); }
+    .gcp { background: linear-gradient(135deg, #4285f4, #34a853); }
+    .pbi { background: linear-gradient(135deg, #f2c811, #c9a100); color: #1a1a1a !important; }
+    .agl { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+    .cert h4 { font-size: .98rem; font-weight: 600; line-height: 1.35; }
+    .cert p { color: var(--muted); font-size: .82rem; }
+
+    /* Languages */
+    .langs { display: flex; flex-wrap: wrap; gap: 14px; }
+    .lang { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 20px; min-width: 180px; }
+    .lang strong { display: block; }
+    .lang span { color: var(--muted); font-size: .85rem; }
+
+    /* Contact */
+    .contact-box {
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 14%, var(--card)), color-mix(in srgb, var(--accent-2) 14%, var(--card)));
+      border: 1px solid var(--border); border-radius: 20px; padding: 48px 32px; text-align: center;
+    }
+    .contact-box p { color: var(--muted); max-width: 560px; margin: 0 auto 28px; }
+    .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0; text-align: center; color: var(--muted); font-size: .85rem; }
+
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s, transform .6s; }
+    .reveal.show { opacity: 1; transform: none; }
+
+    @media (max-width: 760px) {
+      .menu-btn { display: block; }
+      .nav-links {
+        position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0;
+        background: var(--bg); border-bottom: 1px solid var(--border); display: none;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 14px 20px; width: 100%; }
+      .nav-links .theme-btn { margin: 10px 20px 16px; align-self: flex-start; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .job .meta { text-align: left; }
+      .hero { padding: 70px 0 60px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav>
-    <h2 class="logo">Subhani Abdul</h2>
-    <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="container nav-inner">
+      <a href="#home" class="logo">~/subhani<span>.abdul</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">&#9776;</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">&#9788;</button>
+      </div>
+    </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="hero">
-    <h1>Hi, I'm <span>Subhani Abdul</span></h1>
-    <p>Software Developer • Python • ASP.NET MVC • Angular • SQL • Power BI • ETL</p>
-    <div class="buttons">
-      <a href="#projects" class="btn">View Projects</a>
-      <a href="#contact" class="btn secondary">Hire Me</a>
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="status"><i></i> Sr. DevOps Engineer · GE HealthCare · Chicago, IL</div>
+      <h1>Hi, I'm <span class="grad">Subhani Abdul</span></h1>
+      <p class="role">Sr. DevOps Engineer · SRE · DevSecOps · Multi-Cloud (Azure | AWS | GCP)</p>
+
+      <div class="terminal" aria-label="Terminal intro">
+        <div class="terminal-bar"><b></b><b></b><b></b></div>
+        <div class="terminal-body" id="term"></div>
+      </div>
+
+      <div class="cta">
+        <a href="#experience" class="btn primary">View Experience</a>
+        <a href="#contact" class="btn">Get in Touch</a>
+        <a href="https://www.linkedin.com/in/subhani-abdul-1021a7127" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><strong>11+</strong><span>Years in Infrastructure &amp; DevOps</span></div>
+        <div class="stat"><strong>3</strong><span>Clouds: Azure, AWS, GCP</span></div>
+        <div class="stat"><strong>5</strong><span>Certifications</span></div>
+        <div class="stat"><strong>5</strong><span>Languages Spoken</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="alt">
+    <div class="container about reveal">
+      <div class="eyebrow">01. about</div>
+      <h2>About Me</h2>
+      <p>I'm a <strong>Senior DevOps Engineer and SRE</strong> with more than 11 years of experience, starting in Linux administration and moving into cloud-native DevOps across <strong>healthcare, technology, financial services, the public sector and energy</strong>.</p>
+      <p>I design and run reliable, secure and automated platforms on <strong>Azure, AWS and GCP</strong>. My work centers on <strong>Kubernetes</strong>, <strong>Infrastructure as Code with Terraform</strong>, <strong>GitOps</strong> and <strong>CI/CD</strong>, with security built in from the start and controls aligned to <strong>NIST 800-53</strong> and <strong>SOC 2</strong>.</p>
+      <p>I care about shipping fast without breaking things: automating repetitive work, improving observability and building pipelines that development teams trust.</p>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I am a dedicated Software Developer with 2+ years of professional experience.
-      I hold a Master’s in Computer Science from Governors State University (GPA 3.76).
-      Based in the USA and originally from India, I have worked with international clients
-      and contributed to real-world projects, including healthcare management systems,
-      front-end and back-end applications.
-    </p>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills">
-    <h2>Skills & Proficiency</h2>
-    <div class="skills-container">
-      <div class="skill-category">
-        <h3>Frontend</h3>
-        <p>HTML, CSS, JavaScript, Angular, React (Learning)</p>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">02. experience</div>
+        <h2>Where I've Worked</h2>
       </div>
-      <div class="skill-category">
-        <h3>Backend</h3>
-        <p>Python, ASP.NET MVC, REST APIs, Flask</p>
-      </div>
-      <div class="skill-category">
-        <h3>Databases</h3>
-        <p>SQL Server, SQLite, Stored Procedures, Triggers, Functions</p>
-      </div>
-      <div class="skill-category">
-        <h3>Tools & Data</h3>
-        <p>Power BI, ETL (Pentaho), Git/GitHub, VS Code, PyCharm, Postman</p>
-      </div>
-      <div class="skill-category">
-        <h3>Languages</h3>
-        <p>English, Hindi, Urdu, Telugu</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-container">
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>A personal portfolio website built using HTML, CSS & JavaScript.</p>
-      </div>
-      <div class="project-card">
-        <h3>Weather App</h3>
-        <p>Live weather data using OpenWeather API.</p>
-      </div>
-      <div class="project-card">
-        <h3>Expense Tracker</h3>
-        <p>Track daily expenses using browser local storage.</p>
+      <div class="timeline">
+        <div class="job current reveal">
+          <div class="job-card">
+            <div class="job-head">
+              <div><h3>Sr. DevOps Engineer <span class="badge-now">Current</span></h3><div class="company">GE HealthCare</div></div>
+              <div class="meta">Mar 2025 – Present<br>Chicago, IL</div>
+            </div>
+          </div>
+        </div>
+        <div class="job reveal">
+          <div class="job-card">
+            <div class="job-head">
+              <div><h3>Sr. DevOps Engineer</h3><div class="company">Apple</div></div>
+              <div class="meta">Aug 2023 – Feb 2025<br>California</div>
+            </div>
+          </div>
+        </div>
+        <div class="job reveal">
+          <div class="job-card">
+            <div class="job-head">
+              <div><h3>Sr. DevOps Engineer</h3><div class="company">Stifel Financial Corp.</div></div>
+              <div class="meta">Sep 2021 – Jul 2023<br>St. Louis, MO</div>
+            </div>
+          </div>
+        </div>
+        <div class="job reveal">
+          <div class="job-card">
+            <div class="job-head">
+              <div><h3>DevOps Engineer</h3><div class="company">State of Alabama</div></div>
+              <div class="meta">Apr 2018 – Aug 2021<br>Montgomery, AL</div>
+            </div>
+          </div>
+        </div>
+        <div class="job reveal">
+          <div class="job-card">
+            <div class="job-head">
+              <div><h3>Linux Administrator</h3><div class="company">Phillips 66</div></div>
+              <div class="meta">Feb 2015 – Mar 2018<br>Houston, TX</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: asubhani07@gmail.com</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/subhani-abdul/">Profile</a></p>
-    <p>GitHub: <a href="https://github.com/asubhani07">Profile</a></p>
+  <!-- SKILLS -->
+  <section id="skills" class="alt">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">03. skills</div>
+        <h2>Tech Stack</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <h3><span class="ic">☁️</span> Cloud Platforms</h3>
+          <div class="tags"><span class="tag">Azure</span><span class="tag">AWS</span><span class="tag">GCP</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ic">⎈</span> Containers &amp; Orchestration</h3>
+          <div class="tags"><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">Helm</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ic">🏗️</span> Infrastructure as Code</h3>
+          <div class="tags"><span class="tag">Terraform</span><span class="tag">IaC</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ic">🔁</span> CI/CD &amp; GitOps</h3>
+          <div class="tags"><span class="tag">CI/CD Pipelines</span><span class="tag">GitOps</span><span class="tag">Git</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ic">🛡️</span> Security &amp; Compliance</h3>
+          <div class="tags"><span class="tag">DevSecOps</span><span class="tag">Cloud Security</span><span class="tag">NIST 800-53</span><span class="tag">SOC 2</span></div>
+        </div>
+        <div class="skill-card reveal">
+          <h3><span class="ic">📈</span> Reliability &amp; Ways of Working</h3>
+          <div class="tags"><span class="tag">SRE</span><span class="tag">Linux Administration</span><span class="tag">Agile</span><span class="tag">Power BI</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <div class="reveal">
+        <div class="eyebrow">04. certifications</div>
+        <h2>Certifications</h2>
+      </div>
+      <div class="certs">
+        <div class="cert reveal"><div class="logo-box gcp">GCP</div><div><h4>Google Cloud Certified: Professional Cloud DevOps Engineer</h4><p>Google Cloud</p></div></div>
+        <div class="cert reveal"><div class="logo-box aws">AWS</div><div><h4>AWS Certified Generative AI Developer – Professional</h4><p>Amazon Web Services</p></div></div>
+        <div class="cert reveal"><div class="logo-box aws">AWS</div><div><h4>AWS Certified Developer – Associate</h4><p>Amazon Web Services</p></div></div>
+        <div class="cert reveal"><div class="logo-box pbi">BI</div><div><h4>Power BI for Data Visualization</h4><p>Data &amp; Analytics</p></div></div>
+        <div class="cert reveal"><div class="logo-box agl">AGL</div><div><h4>Agile Fundamentals</h4><p>Agile Methodologies</p></div></div>
+      </div>
+
+      <div class="reveal" style="margin-top:56px">
+        <div class="eyebrow">languages</div>
+        <h2 style="margin-bottom:24px">Languages I Speak</h2>
+        <div class="langs">
+          <div class="lang"><strong>English</strong><span>Professional working</span></div>
+          <div class="lang"><strong>Telugu</strong><span>Full professional</span></div>
+          <div class="lang"><strong>Urdu</strong><span>Native / bilingual</span></div>
+          <div class="lang"><strong>Hindi</strong><span>Native / bilingual</span></div>
+          <div class="lang"><strong>Arabic</strong><span>Native / bilingual</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="alt">
+    <div class="container">
+      <div class="contact-box reveal">
+        <div class="eyebrow">05. contact</div>
+        <h2 style="margin-bottom:14px">Let's Work Together</h2>
+        <p>Open to conversations about DevOps, SRE, platform engineering and cloud security roles. My inbox is always open.</p>
+        <div class="contact-links">
+          <a class="btn primary" href="mailto:subhaniabdul333@gmail.com">✉ subhaniabdul333@gmail.com</a>
+          <a class="btn" href="https://www.linkedin.com/in/subhani-abdul-1021a7127" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn" href="https://github.com/Subbu07-cmd" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>© 2024 Subhani Abdul</p>
+    <div class="container">© <span id="yr"></span> Subhani Abdul · Built with HTML, CSS &amp; JavaScript</div>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const navLinks = document.getElementById('navLinks');
+    document.getElementById('menuBtn').addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // Theme toggle (remembers choice)
+    const root = document.documentElement, themeBtn = document.getElementById('themeBtn');
+    const setTheme = t => { root.setAttribute('data-theme', t); themeBtn.innerHTML = t === 'light' ? '&#9790;' : '&#9788;'; };
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    setTheme(saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'));
+    themeBtn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      setTheme(next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+
+    // Terminal typing intro
+    const lines = [
+      { p: '$ ', t: 'whoami' },
+      { o: 'subhani-abdul :: sr-devops-engineer | sre | devsecops' },
+      { p: '$ ', t: 'kubectl get skills --all-namespaces' },
+      { o: 'azure  aws  gcp  kubernetes  terraform  gitops  ci/cd  cloud-security' }
+    ];
+    const term = document.getElementById('term');
+    let li = 0, ci = 0;
+    function type() {
+      if (li >= lines.length) { term.insertAdjacentHTML('beforeend', '<span class="p">$ </span><span class="cursor"></span>'); return; }
+      const l = lines[li];
+      if (l.o) { term.insertAdjacentHTML('beforeend', `<div class="o">${l.o}</div>`); li++; setTimeout(type, 350); return; }
+      if (ci === 0) term.insertAdjacentHTML('beforeend', `<div><span class="p">${l.p}</span><span class="t"></span></div>`);
+      term.lastElementChild.querySelector('.t').textContent += l.t[ci++];
+      if (ci >= l.t.length) { li++; ci = 0; setTimeout(type, 300); } else setTimeout(type, 45);
+    }
+    type();
+
+    // Scroll reveal
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
 </body>
 </html>

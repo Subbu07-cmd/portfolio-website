@@ -1,91 +1,46 @@
-# Subhani Abdul - Portfolio
+# Subhani Abdul | Portfolio
 
-Welcome to my personal portfolio!  
-I am a **Software Developer / Full Stack Developer** with 2+ years
-of experience building real-world applications in Python, ASP.NET MVC,
-Angular, SQL, ETL, and Power BI.
+**Sr. DevOps Engineer | SRE | DevSecOps | Azure | AWS | GCP | Kubernetes | IaC | Terraform | GitOps | CI/CD | Cloud Security**
 
----
+I'm a Senior DevOps Engineer and SRE with more than 11 years of experience in Linux administration, cloud infrastructure and DevOps across healthcare, technology, financial services, the public sector and energy.
 
-## About Me
+## Experience
 
-I hold a **Master’s in Computer Science** from **Governors State University**
-(GPA: 3.76). Based in the **USA** and originally from **India**, I have
-worked on international projects including healthcare management
-systems and front-end/back-end applications.
+| Role | Company | Dates | Location |
+|------|---------|-------|----------|
+| Sr. DevOps Engineer | GE HealthCare | Mar 2025 – Present | Chicago, IL |
+| Sr. DevOps Engineer | Apple | Aug 2023 – Feb 2025 | California |
+| Sr. DevOps Engineer | Stifel Financial Corp. | Sep 2021 – Jul 2023 | St. Louis, MO |
+| DevOps Engineer | State of Alabama | Apr 2018 – Aug 2021 | Montgomery, AL |
+| Linux Administrator | Phillips 66 | Feb 2015 – Mar 2018 | Houston, TX |
 
-I am passionate about building real-world projects, improving my
-full-stack skills, and stepping out of my comfort zone to learn
-new technologies.
+## Skills
 
----
+- **Cloud:** Azure, AWS, GCP
+- **Containers:** Kubernetes, Docker, Helm
+- **IaC:** Terraform
+- **Delivery:** CI/CD, GitOps, Git
+- **Security & Compliance:** DevSecOps, Cloud Security, NIST 800-53, SOC 2
+- **Other:** SRE, Linux Administration, Agile, Power BI
 
-## Skills & Proficiency
+## Certifications
 
-### Frontend
+- Google Cloud Certified: Professional Cloud DevOps Engineer
+- AWS Certified Generative AI Developer – Professional
+- AWS Certified Developer – Associate
+- Power BI for Data Visualization
+- Agile Fundamentals
 
-- HTML  
-- CSS  
-- JavaScript  
-- Angular  
-- React (Learning)
+## Languages
 
-### Backend
-
-- Python  
-- ASP.NET MVC  
-- REST APIs  
-- Flask
-
-### Databases
-
-- SQL Server  
-- SQLite  
-- Stored Procedures  
-- Triggers  
-- Functions
-
-### Tools & Data
-
-- Power BI  
-- ETL (Pentaho)  
-- Git/GitHub  
-- VS Code  
-- PyCharm  
-- Postman
-
-### Languages Spoken
-
-- English  
-- Hindi  
-- Urdu  
-- Telugu
-
----
-
-## Projects
-
-Here are some of the key projects included in this portfolio:
-
-1. **Portfolio Website** – Personal website built with HTML, CSS & JS  
-2. **Weather App** – Live weather data using OpenWeather API  
-3. **Expense Tracker** – Track daily expenses using browser local storage  
-
-*(More projects coming soon… 30+ projects covering Python, ASP.NET, Angular, React,*  
-*SQL, ETL, Power BI.)*
-
----
+English (Professional) · Telugu (Full Professional) · Urdu, Hindi, Arabic (Native/Bilingual)
 
 ## Contact
 
-- **Email:** <asubhani07@gmail.com>  
-- **LinkedIn:** <https://www.linkedin.com/in/subhani-abdul/>  
-- **GitHub:** <https://github.com/Subbu07-cmd>
+- Email: subhaniabdul333@gmail.com
+- LinkedIn: https://www.linkedin.com/in/subhani-abdul-1021a7127
+- GitHub: https://github.com/Subbu07-cmd
 
----
+## Run Locally
 
-## Notes
-
-This portfolio showcases my skills, projects, and professional
-experience. It is continuously updated as I complete new projects and
-enhance my expertise.
+This is a static site with one `index.html` file and no build step. Open it in a browser, or deploy it with GitHub Pages (**Settings → Pages → Deploy from branch → `main` / root**).
